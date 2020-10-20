@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1603217569 source:c:\users\uso exclusivo\documents\uenp\uniformcostsearch\main.cpp
+	<iostream>
+	<vector>
+	<list>
+	<queue>
+	<algorithm>
+	<stdlib.h>
+
