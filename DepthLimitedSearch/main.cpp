@@ -11,7 +11,7 @@ class Graph
 
 public:
     Graph(int Vertice);
-    void addEdgge(int vertice, int weight);
+    void addEdge(int v, int w);
     bool DFS(int vertice, int goal, int max_depth);
 };
 
@@ -21,9 +21,9 @@ Graph::Graph(int Vertice)
     adjacente = new list<int>[Vertice];
 }
 
-void Graph::addEdgge(int vertice, int weigth)
+void Graph::addEdge(int v, int w)
 {
-    adjacente[vertice].push_back(weigth);
+    adjacente[v].push_back(w);
 }
 
 bool Graph::DLS(int source, int goal, int limit)
@@ -54,30 +54,30 @@ int main()
 {
     Graph graph(21);
 
-    graph.addEdgge(0, 3);
-    graph.addEdgge(0, 1);
-    graph.addEdgge(1, 2);
-    graph.addEdgge(1, 4);
-    graph.addEdgge(2, 3);
-    graph.addEdgge(3, 1);
-    graph.addEdgge(3, 5);
-    graph.addEdgge(4, 5);
-    graph.addEdgge(5, 1);
-    graph.addEdgge(6, 0);
-    graph.addEdgge(7, 2);
-    graph.addEdgge(8, 5);
-    graph.addEdgge(9, 6);
-    graph.addEdgge(10, 8);
-    graph.addEdgge(11, 8);
-    graph.addEdgge(12, 7);
-    graph.addEdgge(13, 5);
-    graph.addEdgge(14, 6);
-    graph.addEdgge(15, 8);
-    graph.addEdgge(16, 9);
-    graph.addEdgge(17, 4);
-    graph.addEdgge(18, 7);
-    graph.addEdgge(19, 1);
-    graph.addEdgge(20, 17);
+    graph.addEdge(0, 3);
+    graph.addEdge(0, 1);
+    graph.addEdge(1, 2);
+    graph.addEdge(1, 4);
+    graph.addEdge(2, 3);
+    graph.addEdge(3, 1);
+    graph.addEdge(3, 5);
+    graph.addEdge(4, 5);
+    graph.addEdge(5, 1);
+    graph.addEdge(6, 0);
+    graph.addEdge(7, 2);
+    graph.addEdge(8, 5);
+    graph.addEdge(9, 6);
+    graph.addEdge(10, 8);
+    graph.addEdge(11, 8);
+    graph.addEdge(12, 7);
+    graph.addEdge(13, 5);
+    graph.addEdge(14, 6);
+    graph.addEdge(15, 8);
+    graph.addEdge(16, 9);
+    graph.addEdge(17, 4);
+    graph.addEdge(18, 7);
+    graph.addEdge(19, 1);
+    graph.addEdge(20, 17);
 
     int source, goal, max_depth;
 
