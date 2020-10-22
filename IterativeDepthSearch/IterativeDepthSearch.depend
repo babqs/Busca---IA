@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1603375968 source:c:\users\uso exclusivo\documents\uenp\inteligência artificial\bucas - ia\iterativedepthsearch\main.cpp
+	<iostream>
+	<list>
+	<vector>
+	<stack>
+
