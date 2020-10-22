@@ -7,7 +7,6 @@
 using namespace std;
 
 struct pQ{
-    //caminho
 	list<int> path;
 	int cost;
 	bool operator>(const pQ& rhs) const
@@ -20,45 +19,45 @@ class comparison{
 public:
 	bool operator() (pQ p1, pQ p2) const{
 		//comparando valores
-		return (p1>p2);
+		return (p1 > p2);
 	}
 };
 
 class Graph{
-	int V;
+	int Vertice;
 	vector<int> *adj;
 	vector<int> *wgt;
 public:
-	Graph(int V);
-	void addEdge(int v, int w, int wgt);
-	void UCF(int s, int t);
+	Graph(int vertice);
+	void addEdge(int v, int w, int weigth);
+	void UCF(int source, int Vend);
 	void displayPath(struct pQ f);
 };
 
-Graph::Graph(int V)
+Graph::Graph(int vertice)
 {
-	this->V = V;
-	adj = new vector<int>[V];
-	wgt = new vector<int>[V];
+	this->Vertice = vertice;
+	adj = new vector<int>[vertice];
+	wgt = new vector<int>[vertice];
 }
 
-void Graph::addEdge(int v, int w, int wt) {
+void Graph::addEdge(int v, int w, int weigth) {
 	adj[v].push_back(w);
-	wgt[v].push_back(wt);
+	wgt[v].push_back(weigth);
 
 	//non-directed graph
 	adj[w].push_back(v);
-	wgt[w].push_back(wt);
+	wgt[w].push_back(weigth);
 }
 
-void Graph::UCF(int s, int t){
+void Graph::UCF(int source, int Vend){
 	int current = 0, pos = 0;
 	typedef priority_queue<pQ, vector<pQ>, comparison> mypq_type;
 	mypq_type pq;
 
 	pQ vstart;
 
-	vstart.path.push_back(s);
+	vstart.path.push_back(source);
 	vstart.cost = 0;
 
 	vector<int>::iterator i;
@@ -70,9 +69,9 @@ void Graph::UCF(int s, int t){
 		currentPQ = pq.top();
 
 		pq.pop();
-		if(current == t)
+		if(current == Vend)
 		{
-			cout<<"found"<<endl;
+			//cout<<"found"<<endl;
 			displayPath(currentPQ);
 			exit(0);
 		}
@@ -98,7 +97,7 @@ void Graph::displayPath(struct pQ p)
     cout<<"->"<<*i;
   }
 	cout<<endl;
-  cout<<"Pathlength: "<<p.cost;
+  cout<<"Cost: "<<p.cost;
 }
 
 int main()
